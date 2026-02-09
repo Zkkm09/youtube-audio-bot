@@ -6,9 +6,10 @@ Production-ready version with enhanced logging and error handling
 
 import os
 import logging
+import glob
 from datetime import datetime
 import telebot
-from pytubefix import YouTube
+import yt_dlp
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -96,12 +97,19 @@ def download_youtube_audio(message):
             message_id=status_msg.message_id
         )
         
-        # Try WEB client with automatic PO Token (requires nodejs)
-        yt = YouTube(url, 'WEB')
+        # yt-dlp options for extracting info first
+        info_opts = {
+            'quiet': True,
+            'no_warnings': True,
+            'skip_download': True,
+        }
         
-        title = yt.title
-        author = yt.author
-        duration = yt.length
+        with yt_dlp.YoutubeDL(info_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
+        
+        title = info.get('title', 'Unknown')
+        author = info.get('uploader', 'Unknown')
+        duration = info.get('duration', 0) or 0
         
         bot.edit_message_text(
             f"📺 Video: {title}\n"
@@ -112,15 +120,43 @@ def download_youtube_audio(message):
             message_id=status_msg.message_id
         )
         
-        # Get audio stream (itag=140: 128kbps mp4)
-        audio_stream = yt.streams.get_by_itag(140)
+        # yt-dlp options for downloading audio
+        safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).strip()[:50]
+        output_template = os.path.join(DOWNLOAD_DIR, f"{safe_title}.%(ext)s")
         
-        if not audio_stream:
-            # Fallback to best audio
-            audio_stream = yt.streams.filter(only_audio=True).order_by('abr').desc().first()
+        download_opts = {
+            'format': 'bestaudio[ext=m4a]/bestaudio/best',
+            'outtmpl': output_template,
+            'quiet': True,
+            'no_warnings': True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'm4a',
+                'preferredquality': '128',
+            }],
+        }
         
-        # Download audio
-        audio_file = audio_stream.download(output_path=DOWNLOAD_DIR)
+        with yt_dlp.YoutubeDL(download_opts) as ydl:
+            ydl.download([url])
+        
+        # Find the downloaded file
+        audio_file = None
+        for ext in ['m4a', 'mp3', 'opus', 'webm', 'mp4']:
+            pattern = os.path.join(DOWNLOAD_DIR, f"{safe_title}.{ext}")
+            matches = glob.glob(pattern)
+            if matches:
+                audio_file = matches[0]
+                break
+        
+        if not audio_file:
+            # Fallback: find any recently created file
+            files = glob.glob(os.path.join(DOWNLOAD_DIR, '*'))
+            if files:
+                audio_file = max(files, key=os.path.getctime)
+        
+        if not audio_file or not os.path.exists(audio_file):
+            raise Exception("Download completed but audio file not found")
+        
         file_size = os.path.getsize(audio_file) / (1024 * 1024)  # Convert to MB
         
         bot.edit_message_text(

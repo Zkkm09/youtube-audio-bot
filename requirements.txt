@@ -1,5 +1,4 @@
 # YouTube Audio Downloader Bot Dependencies
 pyTelegramBotAPI>=4.14.0
 python-dotenv>=1.0.0
-pytubefix>=10.3.6
-nodejs-wheel-binaries
+yt-dlp>=2024.0.0
