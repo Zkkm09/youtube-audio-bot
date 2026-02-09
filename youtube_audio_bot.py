@@ -96,13 +96,8 @@ def download_youtube_audio(message):
             message_id=status_msg.message_id
         )
         
-        # Try WEB client with automatic PO Token (nodejs), fall back to OAuth
-        try:
-            yt = YouTube(url, 'WEB')
-            _ = yt.title  # Force fetch to trigger any errors early
-        except Exception:
-            logger.warning("WEB client failed, falling back to OAuth...")
-            yt = YouTube(url, use_oauth=True, allow_oauth_cache=True)
+        # Try WEB client with automatic PO Token (requires nodejs)
+        yt = YouTube(url, 'WEB')
         
         title = yt.title
         author = yt.author
