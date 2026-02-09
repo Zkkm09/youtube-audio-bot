@@ -96,7 +96,7 @@ def download_youtube_audio(message):
             message_id=status_msg.message_id
         )
         
-        yt = YouTube(url, 'WEB')
+        yt = YouTube(url, use_po_token=True)
         
         title = yt.title
         author = yt.author

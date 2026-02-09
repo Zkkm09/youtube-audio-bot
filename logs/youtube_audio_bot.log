@@ -1,0 +1,40 @@
+2026-02-09 17:34:11,736 - __main__ - INFO - ============================================================
+2026-02-09 17:34:11,736 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:34:11,737 - __main__ - INFO - ============================================================
+2026-02-09 17:34:11,737 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:34:11,737 - __main__ - INFO - Log directory: logs
+2026-02-09 17:34:11,738 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:34:12,672 - TeleBot - ERROR - Infinity polling exception: A request to the Telegram API was unsuccessful. Error code: 502. Description: Bad Gateway
+2026-02-09 17:34:12,784 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\__init__.py", line 1195, in polling
+    logger.info('Starting your bot with username: [@%s]', self.user.username)
+                                                          ^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\__init__.py", line 306, in user
+    self._user = self.get_me()
+                 ~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\__init__.py", line 1382, in get_me
+    apihelper.get_me(self.token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\apihelper.py", line 204, in get_me
+    return _make_request(token, method_url)
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+  File "C:\Users\DELL\AppData\Roaming\Python\Python313\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 502. Description: Bad Gateway
+
+2026-02-09 17:36:08,572 - __main__ - INFO - ============================================================
+2026-02-09 17:36:08,572 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:36:08,572 - __main__ - INFO - ============================================================
+2026-02-09 17:36:08,572 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:36:08,573 - __main__ - INFO - Log directory: logs
+2026-02-09 17:36:08,573 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:36:27,198 - __main__ - INFO - Successfully sent audio: ’»«Õ ›Œ—Ì | ﬁœﬂ «·„Ì«” to user 60286217
