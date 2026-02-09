@@ -24,8 +24,8 @@ def download_youtube_video(url, output_dir="downloads"):
         
         print(f"Fetching video information for: {url}")
         
-        # Initialize YouTube object
-        yt = YouTube(url, on_progress_callback=on_progress)
+        # Initialize YouTube object with WEB client for PO Token support
+        yt = YouTube(url, 'WEB', on_progress_callback=on_progress)
         
         print(f"\nTitle: {yt.title}")
         print(f"Author: {yt.author}")
