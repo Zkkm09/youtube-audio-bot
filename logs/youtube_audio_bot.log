@@ -38,3 +38,32 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2026-02-09 17:36:08,573 - __main__ - INFO - Log directory: logs
 2026-02-09 17:36:08,573 - __main__ - INFO - Starting bot polling...
 2026-02-09 17:36:27,198 - __main__ - INFO - Successfully sent audio: ’»«Õ ›Œ—Ì | ﬁœﬂ «·„Ì«” to user 60286217
+2026-02-09 17:49:39,460 - __main__ - INFO - ============================================================
+2026-02-09 17:49:39,460 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:49:39,460 - __main__ - INFO - ============================================================
+2026-02-09 17:49:39,460 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:49:39,460 - __main__ - INFO - Log directory: logs
+2026-02-09 17:49:39,461 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:49:50,675 - __main__ - ERROR - Error processing request: HTTP Error 403: Forbidden
+2026-02-09 17:51:24,592 - __main__ - INFO - ============================================================
+2026-02-09 17:51:24,592 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:51:24,592 - __main__ - INFO - ============================================================
+2026-02-09 17:51:24,592 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:51:24,593 - __main__ - INFO - Log directory: logs
+2026-02-09 17:51:24,593 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:51:34,936 - __main__ - ERROR - Error processing request: fYs_8sR_UYw requires login to view, YouTube reason: Please sign in
+2026-02-09 17:52:22,064 - __main__ - INFO - ============================================================
+2026-02-09 17:52:22,064 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:52:22,064 - __main__ - INFO - ============================================================
+2026-02-09 17:52:22,064 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:52:22,065 - __main__ - INFO - Log directory: logs
+2026-02-09 17:52:22,065 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:53:00,326 - __main__ - ERROR - Error processing request: HTTP Error 403: Forbidden
+2026-02-09 17:55:42,722 - __main__ - INFO - ============================================================
+2026-02-09 17:55:42,722 - __main__ - INFO - YouTube Audio Downloader Bot - Starting
+2026-02-09 17:55:42,722 - __main__ - INFO - ============================================================
+2026-02-09 17:55:42,723 - __main__ - INFO - Download directory: downloads
+2026-02-09 17:55:42,723 - __main__ - INFO - Log directory: logs
+2026-02-09 17:55:42,723 - __main__ - INFO - Starting bot polling...
+2026-02-09 17:56:05,246 - pytubefix.sabr.core.server_abr_stream - WARNING - SABR YouTube is forcing ads, wait 4.0 seconds to skip
+2026-02-09 17:56:18,732 - __main__ - INFO - Successfully sent audio: ’»«Õ ›Œ—Ì | ﬁœﬂ «·„Ì«” to user 60286217
